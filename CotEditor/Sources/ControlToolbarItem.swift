@@ -57,8 +57,8 @@ class ControlToolbarItem: NSToolbarItem {
             switch validator {
             case let validator as NSUserInterfaceValidations:
                 return validator.validateUserInterfaceItem(self)
-            case _ where validator.responds(to: #selector(validateToolbarItem)):
-                return validator.validateToolbarItem(self)
+            case _ where validator.responds(to: #selector(validate(_:))):
+                return validator.validate(self)
             default:
                 return true
             }
